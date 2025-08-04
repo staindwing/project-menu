@@ -1,0 +1,808 @@
+<!DOCtype html>
+<html>
+    <head>
+        <title>Elysianwing's Restaurant Menu</title>
+        <link rel="stylesheet" href="restaurant-styles.css">
+    </head>
+    <body style = "background-color: rgb(0, 0, 0); color:white; font-family:Reactor7;">
+        <header>
+            <!--main box design 1 cover image-->
+            <div id="header-img-box">
+                <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fdreamchasergallery.com%2Fwp-content%2Fuploads%2F2023%2F01%2F9.jpg&f=1&nofb=1&ipt=3eb7d8025142c48fa3b2ca194042994995934e4d6be7461d330492b11ecf3a40"id="header-img">
+            </div>
+        </header>
+
+        <main>
+        <!--floating title/location box and music player-->
+            <div id="music-box">
+                <h1 style="margin:0;padding-left: 20px;padding-top: 20px;">Tifa's 7th Heaven</h1>
+                <h2 style="margin:0;padding-left: 20px;padding-bottom: 20px;">Midgar Area</h2>
+        <!--music box-->
+                <audio id="player" controls autoplay loop style="position: absolute;bottom: 20px;right: 20px;z-index: 9999;">
+                </audio>
+                <script>
+        // List of the tracks
+                        let tracks = ["01-The Prelude.mp3", "06-Tifa's Theme.mp3", "47-Life Stream.mp3", "62-Interrupted by Fireworks.mp3"];
+        // Shuffle the playlist each time the page loads
+                        function shuffle(array) {
+                        for (let i = array.length - 1; i > 0; i--) {
+                        let j = Math.floor(Math.random() * (i + 1));
+                        [array[i], array[j]] = [array[j], array[i]];
+                        }
+                        return array;
+                        }
+
+                        tracks = shuffle(tracks);
+        // Get the player and set the first track
+                        const player = document.getElementById("player");
+                        player.volume = 0.5; // 🎚 Set default volume to 50%
+                        let current = 0;
+                        player.src = tracks[current];
+                        player.play();
+
+        // When a track ends, advance to the next
+                        player.addEventListener("ended", function () {
+                        current++;
+                        if (current >= tracks.length) {
+        // If we've reached the end, reshuffle and loop back
+                        tracks = shuffle(tracks);
+                        current = 0;
+                        }
+                        player.src = tracks[current];
+                        player.play();
+                        });
+                </script>
+            </div>
+        <!--Floating nav box-->
+            <div id="nav-panel">
+                <nav>
+                    <ul>
+                        <li>
+                            <p class="first-link">
+                            <a href="#menu">Menu</a>
+                            </p>
+                        </li>
+                        <li>
+                            <p>
+                            <a href="#starters">Starters pg.1</a>
+                            </p>
+                        </li>
+                        <li>
+                            <p>
+                            <a href="#starters2">Starters pg.2</a>
+                            </p>
+                        </li>
+                        <li>
+                            <p>
+                            <a href="#starters3">Starters pg.3</a>
+                            </p>
+                        </li>
+                        <li>
+                            <p>
+                            <a href="#entrees">Entrees pg.1</a>
+                            </p>
+                        </li>
+                        <li>
+                            <p>
+                            <a href="#entrees2">Entrees pg.2</a>
+                            </p>
+                        </li>
+                        <li>
+                            <p>
+                            <a href="#entrees3">Entrees pg.3</a>
+                            </p>
+                        </li>
+                        <li>
+                            <p>
+                            <a href="#desserts">Desserts pg.1</a>
+                            </p>
+                        </li>
+                        <li>
+                            <p>
+                            <a href="#desserts2">Desserts pg.2</a>
+                            </p>
+                        </li>
+                        <li>
+                            <p>
+                            <a href="#desserts3">Desserts pg.3</a>
+                            </p>
+                        </li>
+                        <li>
+                            <p>
+                            <a href="#drinks">Drinks pg.1</a>
+                            </p>
+                        </li>
+                        <li>
+                            <p>
+                            <a href="#drinks2">Drinks pg.2</a>
+                            </p>
+                        </li>
+                        <li>
+                            <p>
+                            <a href="#drinks3">Drinks pg.3</a>
+                            </p>
+                        </li>
+                        <br><br>
+                        <li>
+                            <p class="last-link">
+                            <a href="#order-form">Order Form pg.1</a>
+                            </p>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        <!--Floating right clock/gil box-->
+            <div id="clockbox">
+                <div class="clock-row">
+                    <p>Time</p>
+                    <h4 id="clock"></h4>
+                </div>
+
+                <div class="clock-row">
+                    <p>Gil</p>
+                    <h4>1,000,000</h4>
+                </div>
+            </div>
+
+            <script>
+                function updateClock() {
+                const now = new Date();
+                let hours = now.getHours();
+                let minutes = now.getMinutes();
+                let seconds = now.getSeconds();
+
+                hours = hours < 10 ? "0" + hours : hours;
+                minutes = minutes < 10 ? "0" + minutes : minutes;
+                seconds = seconds < 10 ? "0" + seconds : seconds;
+
+                document.getElementById('clock').textContent = `${hours}:${minutes}:${seconds}`;
+                }
+
+                setInterval(updateClock, 1000);
+                updateClock();
+            </script>
+
+        
+        
+        <!--main box design 2 menu section -->
+        
+            <section id="menu">
+                <p>Menu</p>
+            </section>
+        
+            
+        <!-- Starters Section Page 1 -->
+            <p id="starter-id">Starters pg.1</p>
+            <section id="starters">
+                <article>
+                    <img class="dish" src="barrets grenade nuggets.png" alt="Barret's Grenade Nuggets">
+                    <span class="item-name-1">Barret's Grenade Nuggets</span>
+                    <span class="text-start-1">Gil</span>
+                    <span class="flavor-text-1">799</span>
+                    <span class="text-start-2">Spicy</span>
+                    <span class="flavor-text-2">nuggets with fiery chili glaze.</span>
+                    <span class="text-start-3">Blown</span>
+                    <span class="flavor-text-3">up dish, with creamy ranch coolness.</span>
+                    <img class="hp-bar" src="hp bar.png">
+                    <img class="mp-bar" src="mp bar.png">
+                </article>
+                <article>
+                    <img class="dish" src="cait sith's dragon scales soup.png" alt="Cait Sith's Dragon Scales Soup">
+                    <span class="item-name-2">Cait Sith's Dragon Scales Soup</span>
+                    <span class="text-start-4">Gil</span>
+                    <span class="flavor-text-4">725</span>
+                    <span class="text-start-5">Light</span>
+                    <span class="flavor-text-5">soup with dragon scales, veggies.</span>
+                    <span class="text-start-6">Crisp</span>
+                    <span class="flavor-text-6">refreshing, cool Aqua-Breath taste.</span>
+                    <img class="hp-bar-2" src="hp bar.png">
+                    <img class="mp-bar-2" src="mp bar.png">
+                </article>
+                <article>
+                    <img class="dish" src="cid's fire veil fries.png" alt="Cid's Fire Veil Fries">
+                    <span class="item-name-3">Cid's Fire Veil Fries</span>
+                    <span class="text-start-7">Gil</span>
+                    <span class="flavor-text-7">699</span>
+                    <span class="text-start-8">Golden</span>
+                    <span class="flavor-text-8">fries with Fire3 spicy coating.</span>
+                    <span class="text-start-9">Fiery</span>
+                    <span class="flavor-text-9">heat with zesty cooling dip.</span>
+                    <img class="hp-bar-3" src="hp bar.png">
+                    <img class="mp-bar-3" src="mp bar.png">
+                </article>
+            </section>
+
+        <!-- Starters Section Page 2 -->
+            <p id="starter-id-2">Starters pg.2</p>
+            <section id="starters2">
+                <article>
+                    <img class="dish" src="cloud's smoke bomb sliders.png" alt="Cloud's Smoke Bomb Sliders">
+                    <span class="item-name-1">Cloud's Smoke Bomb Sliders</span>
+                    <span class="text-start-1">Gil</span>
+                    <span class="flavor-text-1">850</span>
+                    <span class="text-start-2">Mini</span>
+                    <span class="flavor-text-2">sliders with smoky pork, sauce.</span>
+                    <span class="text-start-3">Bold</span>
+                    <span class="flavor-text-3">smoky escape from bland flavors.</span>
+                    <img class="hp-bar" src="hp bar.png">
+                    <img class="mp-bar" src="mp bar.png">
+                </article>
+                <article>
+                    <img class="dish" src="aeris sylkis greens.png" alt="Gainsborough’s Sylkis Greens">
+                    <span class="item-name-2">Gainsborough’s Sylkis Greens</span>
+                    <span class="text-start-4">Gil</span>
+                    <span class="flavor-text-4">725</span>
+                    <span class="text-start-5">Fresh</span>
+                    <span class="flavor-text-5">greens,nuts and zesty dressing.</span>
+                    <span class="text-start-6">Heals</span>
+                    <span class="flavor-text-6">stamina and boosts vitality.</span>
+                    <img class="hp-bar-2" src="hp bar.png">
+                    <img class="mp-bar-2" src="mp bar.png">
+                </article>
+                <article>
+                    <img class="dish" src="red xiii's ts Bomb tater tots.png" alt="Red XIII's T/S Bomb Tater-Tots">
+                    <span class="item-name-3">Red XIII's T/S Bomb Tater-Tots</span>
+                    <span class="text-start-7">Gil</span>
+                    <span class="flavor-text-7">750</span>
+                    <span class="text-start-8">Crispy</span>
+                    <span class="flavor-text-8">tater tots with Red Wine glaze.</span>
+                    <span class="text-start-9">Flavor</span>
+                    <span class="flavor-text-9">bomb tots with a tasty twist.</span>
+                    <img class="hp-bar-3" src="hp bar.png">
+                    <img class="mp-bar-3" src="mp bar.png">
+                </article>
+            </section>
+
+        <!-- Starters Section Page 3 -->
+            <p id="starter-id-3">Starters pg.3</p>
+            <section id="starters3">
+                <article>
+                    <img class="dish" src="Tifa's hyper hot wings.png" alt="Tifa's Hyper Hot Wings">
+                    <span class="item-name-1">Tifa's Hyper Hot Wings</span>
+                    <span class="text-start-1">Gil</span>
+                    <span class="flavor-text-1">875</span>
+                    <span class="text-start-2">Hot</span>
+                    <span class="flavor-text-2">wings with fiery sauce & ranch dip.</span>
+                    <span class="text-start-3">Served</span>
+                    <span class="flavor-text-3">with celery and carrot sticks.</span>
+                    <img class="hp-bar" src="hp bar.png">
+                    <img class="mp-bar" src="mp bar.png">
+                </article>
+                <article>
+                    <img class="dish" src="vincent's deadly waste chips and dip.png" alt="Valentine's Deadly Waste Chips and Dip">
+                    <span class="item-name-2">Valentine's Deadly Waste Chips and Dip</span>
+                    <span class="text-start-4">Gil</span>
+                    <span class="flavor-text-4">775</span>
+                    <span class="text-start-5">Crisp</span>
+                    <span class="flavor-text-5">chips with habanero queso dip.</span>
+                    <span class="text-start-6">Toxic</span>
+                    <span class="flavor-text-6">heat with a fierce kick.</span>
+                    <img class="hp-bar-2" src="hp bar.png">
+                    <img class="mp-bar-2" src="mp bar.png">
+                </article>
+                <article>
+                    <img class="dish" src="yuffie's dazers dumplings.png" alt="Yuffie's Dazers Dumplings">
+                    <span class="item-name-3">Yuffie's Dazers Dumplings</span>
+                    <span class="text-start-7">Gil</span>
+                    <span class="flavor-text-7">750</span>
+                    <span class="text-start-8">Dazing</span>
+                    <span class="flavor-text-8">Pork dumplings, sesame-oil glaze.</span>
+                    <span class="text-start-9">Served</span>
+                    <span class="flavor-text-9">with tasty ginger-soy sauce.</span>
+                    <img class="hp-bar-3" src="hp bar.png">
+                    <img class="mp-bar-3" src="mp bar.png">
+                </article>
+            </section>
+        <!-- Entrees Section Page 1 -->
+
+            <p id="entree-id">Entrees pg.1</p>
+            <section id="entrees">
+                <article>
+                    <img class="dish" src="catastrophe chicken sandwich.png" alt="Catastrophe Chicken Sandwich">
+                    <span class="item-name-1">Barret's Catastrophe Chicken Sandwich</span>
+                    <span class="text-start-1">Gil</span>
+                    <span class="flavor-text-1">1299</span>
+                    <span class="text-start-2">Crispy</span>
+                    <span class="flavor-text-2">Fried chicken, spicy mayo, pickles.</span>
+                    <span class="text-start-3">Epic</span>
+                    <span class="flavor-text-3">sandwich, served with seasoned fries.</span>
+                    <img class="hp-bar" src="hp bar.png">
+                    <img class="mp-bar" src="mp bar.png">
+                </article>
+                <article>
+                    <img class="dish" src="cait sith's remedy ribs.png" alt="Cait Sith's Remedy Ribs">
+                    <span class="item-name-2">Cait Sith's Remedy Ribs</span>
+                    <span class="text-start-4">Gil</span>
+                    <span class="flavor-text-4">1525</span>
+                    <span class="text-start-5">Tangy</span>
+                    <span class="flavor-text-5">BBQ ribs and loaded baked potato.</span>
+                    <span class="text-start-6">Remedy</span>
+                    <span class="flavor-text-6">your hunger woes...but with ribs.</span>
+                    <img class="hp-bar-2" src="hp bar.png">
+                    <img class="mp-bar-2" src="mp bar.png">
+                </article>
+                <article>
+                    <img class="dish" src="cid's graviball meatloaf and gravy.png" alt="Cid's Graviball Meatloaf and Gravy">
+                    <span class="item-name-3">Cid's Graviball Meatloaf and Gravy</span>
+                    <span class="text-start-7">Gil</span>
+                    <span class="flavor-text-7">1399</span>
+                    <span class="text-start-8">Hearty</span>
+                    <span class="flavor-text-8">meatloaf with rich gravy, potatoes.</span>
+                    <span class="text-start-9">Potent</span>
+                    <span class="flavor-text-9">Demi cast blends savory flavors.</span>
+                    <img class="hp-bar-3" src="hp bar.png">
+                    <img class="mp-bar-3" src="mp bar.png">
+                </article>
+            </section>
+
+        <!-- Entrees Section Page 2 -->
+            <p id="entree-id-2">Entrees pg.2</p>
+            <section id="entrees2">
+                <article>
+                    <img class="dish" src="aeris grain bowl.png" alt="Gainsborough’s Great Gospel Grain Bowl">
+                    <span class="item-name-1">Gainsborough's Great Gospel Grain Bowl</span>
+                    <span class="text-start-1">Gil</span>
+                    <span class="flavor-text-1">1299</span>
+                    <span class="text-start-2">Vegan</span>
+                    <span class="flavor-text-2">quinoa, veggies, tofu, herb dressing.</span>
+                    <span class="text-start-3">Revive</span>
+                    <span class="flavor-text-3">your spirits with these zesty grains .</span>
+                    <img class="hp-bar" src="hp bar.png">
+                    <img class="mp-bar" src="mp bar.png">
+                </article>
+                <article>
+                    <img class="dish" src="Kisaragis swift bolt sushi.png" alt="Kisaragi's Dragon Fang Sushi">
+                    <span class="item-name-2">Kisaragi's Dragon Fang Sushi</span>
+                    <span class="text-start-4">Gil</span>
+                    <span class="flavor-text-4">1450</span>
+                    <span class="text-start-5">Fresh</span>
+                    <span class="flavor-text-5">Sushi rolls with wasabi, soy sauce.</span>
+                    <span class="text-start-6">Sharp</span>
+                    <span class="flavor-text-6">Wasabi bites like dragon fangs.</span>
+                    <img class="hp-bar-2" src="hp bar.png">
+                    <img class="mp-bar-2" src="mp bar.png">
+                </article>
+                <article>
+                    <img class="dish" src="Nanaki's Turbo Ether Tacos.png" alt="Nanaki's Turbo Ether Tacos">
+                    <span class="item-name-3">Nanaki's Turbo Ether Tacos</span>
+                    <span class="text-start-7">Gil</span>
+                    <span class="flavor-text-7">1275</span>
+                    <span class="text-start-8">Street</span>
+                    <span class="flavor-text-8">tacos with spiced beef, zesty sauce.</span>
+                    <span class="text-start-9">Boost</span>
+                    <span class="flavor-text-9">your senses,these tacos work fast.</span>
+                    <img class="hp-bar-3" src="hp bar.png">
+                    <img class="mp-bar-3" src="mp bar.png">
+                </article>
+            </section>
+
+        <!-- Entrees Section Page 3 -->
+            <p id="entree-id-3">Entrees pg.3</p>
+            <section id="entrees3">
+                <article>
+                    <img class="dish" src="strife's fajitas.png" alt="Strife's Fire Fang Fajitas">
+                    <span class="item-name-1">Strife's Fire Fang Fajitas</span>
+                    <span class="text-start-1">Gil</span>
+                    <span class="flavor-text-1">1375</span>
+                    <span class="text-start-2">Piping</span>
+                    <span class="flavor-text-2">hot chicken, peppers, spicy tortillas.</span>
+                    <span class="text-start-3">Fiery</span>
+                    <span class="flavor-text-3">salsa kick with bold Fire2 heat.</span>
+                    <img class="hp-bar" src="hp bar.png">
+                    <img class="mp-bar" src="mp bar.png">
+                </article>
+                <article>
+                    <img class="dish" src="tifa's hi-potion hot pot.png" alt="Tifa's Hi-Potion Hot Pot">
+                    <span class="item-name-2">Tifa's Hi-Potion Hot Pot</span>
+                    <span class="text-start-4">Gil</span>
+                    <span class="flavor-text-4">1450</span>
+                    <span class="text-start-5">Steamy</span>
+                    <span class="flavor-text-5">beef, mushrooms, greens, savory broth.</span>
+                    <span class="text-start-6">Curing</span>
+                    <span class="flavor-text-6">with the hearty warmth of a Hi-Potion.</span>
+                    <img class="hp-bar-2" src="hp bar.png">
+                    <img class="mp-bar-2" src="mp bar.png">
+                </article>
+                <article>
+                    <img class="dish" src="vincent's chaos cheeseburger.png" alt="Vincent's Chaos Cheeseburger">
+                    <span class="item-name-3">Vincent's Chaos Cheeseburger</span>
+                    <span class="text-start-7">Gil</span>
+                    <span class="flavor-text-7">1375</span>
+                    <span class="text-start-8">Juicy</span>
+                    <span class="flavor-text-8">burger with spicy pepper crust.</span>
+                    <span class="text-start-9">Chaos</span>
+                    <span class="flavor-text-9">in a burger, with onion rings.</span>
+                    <img class="hp-bar-3" src="hp bar.png">
+                    <img class="mp-bar-3" src="mp bar.png">
+                </article>
+            </section>
+            
+        <!-- Desserts Section Page 1 -->
+            <p id="dessert-id">Desserts pg.1</p>
+            <section id="desserts">
+                <article>
+                    <img class="dish" src="aeris carob nut cake.png" alt="Aeris' Carob Nut Cake">
+                    <span class="item-name-1">Aeris' Carob Nut Cake</span>
+                    <span class="text-start-1">Gil</span>
+                    <span class="flavor-text-1">700</span>
+                    <span class="text-start-2">Moist</span>
+                    <span class="flavor-text-2">carob nut cake, buttercream icing.</span>
+                    <span class="text-start-3">Sweet</span>
+                    <span class="flavor-text-3">golden Chocobo-like sweet delight.</span>
+                    <img class="hp-bar" src="hp bar.png">
+                    <img class="mp-bar" src="mp bar.png">
+                </article>
+                <article>
+                    <img class="dish" src="8-inch cannon ice cream cone.png" alt="Barret's 8-inch Cannon Ice Cream Cone">
+                    <span class="item-name-2">Barret's 8-inch Cannon Ice Cream Cone</span>
+                    <span class="text-start-4">Gil</span>
+                    <span class="flavor-text-4">675</span>
+                    <span class="text-start-5">Swirled</span>
+                    <span class="flavor-text-5">chocolate and vanilla layered cone.</span>
+                    <span class="text-start-6">Bold</span>
+                    <span class="flavor-text-6">punches of rich, creamy flavor.</span>
+                    <img class="hp-bar-2" src="hp bar.png">
+                    <img class="mp-bar-2" src="mp bar.png">
+                </article>
+                <article>
+                    <img class="dish" src="Cid highwind's hot chocolate.png" alt="Cid Highwind's Hot Chocolate">
+                    <span class="item-name-3">Cid Highwind's Hot Chocolate</span>
+                    <span class="text-start-7">Gil</span>
+                    <span class="flavor-text-7">599</span>
+                    <span class="text-start-8">Rich</span>
+                    <span class="flavor-text-8">hot chocolate, marshmallows, spice.</span>
+                    <span class="text-start-9">Smooth</span>
+                    <span class="flavor-text-9">Highwind spirit in every warming sip.</span>
+                    <img class="hp-bar-3" src="hp bar.png">
+                    <img class="mp-bar-3" src="mp bar.png">
+                </article>
+            </section>
+
+        <!-- Desserts Section Page 2 -->
+            <p id="dessert-id-2">Desserts pg.2</p>
+            <section id="desserts2">
+                <article>
+                    <img class="dish" src="cloud's ice crystal ice cream.png" alt="Cloud's Ice Crystal Ice Cream">
+                    <span class="item-name-1">Cloud's Ice Crystal Ice Cream</span>
+                    <span class="text-start-1">Gil</span>
+                    <span class="flavor-text-1">625</span>
+                    <span class="text-start-2">Cool</span>
+                    <span class="flavor-text-2">mint swirl ice cream, waffle crisps.</span>
+                    <span class="text-start-3">Frosty</span>
+                    <span class="flavor-text-3">Ice3-like coolness with crisp bite.</span>
+                    <img class="hp-bar" src="hp bar.png">
+                    <img class="mp-bar" src="mp bar.png">
+                </article>
+                <article>
+                    <img class="dish" src="cait sith's magic source muffins.png" alt="Cait Sith's Magic Source Muffins">
+                    <span class="item-name-2">Cait Sith's Magic Source Muffins</span>
+                    <span class="text-start-4">Gil</span>
+                    <span class="flavor-text-4">625</span>
+                    <span class="text-start-5">Fluffy</span>
+                    <span class="flavor-text-5">banana muffins with berry swirl.</span>
+                    <span class="text-start-6">Magical</span>
+                    <span class="flavor-text-6">berry burst banishes your hunger.</span>
+                    <img class="hp-bar-2" src="hp bar.png">
+                    <img class="mp-bar-2" src="mp bar.png">
+                </article>
+                <article>
+                    <img class="dish" src="tifa's soft sorbet.png" alt="Tifa's Soft Sorbet">
+                    <span class="item-name-3">Tifa's Soft Sorbet</span>
+                    <span class="text-start-7">Gil</span>
+                    <span class="flavor-text-7">599</span>
+                    <span class="text-start-8">Silky</span>
+                    <span class="flavor-text-8">citrus sorbet with bright finish.</span>
+                    <span class="text-start-9">Chilled</span>
+                    <span class="flavor-text-9">reviving zest sparks your senses.</span>
+                    <img class="hp-bar-3" src="hp bar.png">
+                    <img class="mp-bar-3" src="mp bar.png">
+                </article>
+            </section>
+
+        <!-- Desserts Section Page 3 -->
+            <p id="dessert-id-3">Desserts pg.3</p>
+            <section id="desserts3">
+                <article>
+                    <img class="dish" src="vincent's dream powder pudding.png" alt="Vincent's Dream Powder Pudding">
+                    <span class="item-name-1">Vincent's Dream Powder Pudding</span>
+                    <span class="text-start-1">Gil</span>
+                    <span class="flavor-text-1">675</span>
+                    <span class="text-start-2">Elegant</span>
+                    <span class="flavor-text-2">velvety vanilla pudding, chilled.</span>
+                    <span class="text-start-3">Dreamy</span>
+                    <span class="flavor-text-3">soothing melt-in-your-mouth delight.</span>
+                    <img class="hp-bar" src="hp bar.png">
+                    <img class="mp-bar" src="mp bar.png">
+                </article>
+                <article>
+                    <img class="dish" src="yuffie's kiss of death cake.png" alt="Yuffie's Kiss of Death Cake">
+                    <span class="item-name-2">Yuffie's Kiss of Death Cake</span>
+                    <span class="text-start-4">Gil</span>
+                    <span class="flavor-text-4">750</span>
+                    <span class="text-start-5">Dark</span>
+                    <span class="flavor-text-5">chocolate cake, fresh raspberries.</span>
+                    <span class="text-start-6">Sweet</span>
+                    <span class="flavor-text-6">and tempting to-die-for finish.</span>
+                    <img class="hp-bar-2" src="hp bar.png">
+                    <img class="mp-bar-2" src="mp bar.png">
+                </article>
+                <article>
+                    <img class="dish" src="xiii's pipio nut butter cookies.png" alt="XIII's Pipio-Nut Butter Cookies">
+                    <span class="item-name-3">XIII's Pipio-Nut Butter Cookies</span>
+                    <span class="text-start-7">Gil</span>
+                    <span class="flavor-text-7">650</span>
+                    <span class="text-start-8">Rich</span>
+                    <span class="flavor-text-8">buttery cookies, pipio nut crunch.</span>
+                    <span class="text-start-9">Warm</span>
+                    <span class="flavor-text-9">sweet roasted nutty delight.</span>
+                    <img class="hp-bar-3" src="hp bar.png">
+                    <img class="mp-bar-3" src="mp bar.png">
+                </article>
+            </section>
+        <!-- Drinks Section Page 1 -->
+            <p id="drink-id">Drinks pg.1</p>
+            <section id="drinks">
+                <article>
+                    <img class="dish" src="aeris ether tea.png" alt="Aeris' Mideel Island Ether Tea">
+                    <span class="item-name-1">Aeris' Mideel Island Elixer Tea</span>
+                    <span class="text-start-1">Gil</span>
+                    <span class="flavor-text-1">399</span>
+                    <span class="text-start-2">Potent</span>
+                    <span class="flavor-text-2">vodka, rum, gin, tequila, citrus, cola.</span>
+                    <span class="text-start-3">Elixer</span>
+                    <span class="flavor-text-3">with a tropical zing to revive you.</span>
+                    <img class="hp-bar" src="hp bar.png">
+                    <img class="mp-bar" src="mp bar.png">
+                </article>
+                <article>
+                    <img class="dish" src="barrets molotov cocktail.png" alt="Barret's Molotov Cocktail">
+                    <span class="item-name-2">Barret's Molotov Cocktail</span>
+                    <span class="text-start-4">Gil</span>
+                    <span class="flavor-text-4">525</span>
+                    <span class="text-start-5">Vodka</span>
+                    <span class="flavor-text-5">and spiced cinnamon rum, served over ice.</span>
+                    <span class="text-start-6">Ignite</span>
+                    <span class="flavor-text-6">the palate with Molotov’s fiery kick.</span>
+                    <img class="hp-bar-2" src="hp bar.png">
+                    <img class="mp-bar-2" src="mp bar.png">
+                </article>
+                <article>
+                    <img class="dish" src="cait's loco weed latte.png" alt="Cait's Loco Weed Latte">
+                    <span class="item-name-3">Cait's Loco Weed Latte</span>
+                    <span class="text-start-7">Gil</span>
+                    <span class="flavor-text-7">375</span>
+                    <span class="text-start-8">Spiced</span>
+                    <span class="flavor-text-8">latte with double whiskey shot.</span>
+                    <span class="text-start-9">Bold</span>
+                    <span class="flavor-text-9">kick with a confusingly spicy buzz.</span>
+                    <img class="hp-bar-3" src="hp bar.png">
+                    <img class="mp-bar-3" src="mp bar.png">
+                </article>
+            </section>
+
+        <!-- Drinks Section Page 2 -->
+            <p id="drink-id-2">Drinks pg.2</p>
+            <section id="drinks2">
+                <article>
+                    <img class="dish" src="cid's swift bolt stout.png" alt="Cid's Swift Bolt Stout">
+                    <span class="item-name-1">Cid's Swift Bolt Stout</span>
+                    <span class="text-start-1">Gil</span>
+                    <span class="flavor-text-1">425</span>
+                    <span class="text-start-2">Dark</span>
+                    <span class="flavor-text-2">coffee stout with roasted flavors.</span>
+                    <span class="text-start-3">Tasty</span>
+                    <span class="flavor-text-3">lightning-strong, roasty finish.</span>
+                    <img class="hp-bar" src="hp bar.png">
+                    <img class="mp-bar" src="mp bar.png">
+                </article>
+                <article>
+                    <img class="dish" src="cloud's hero drink.png" alt="Cloud's Hero Drink">
+                    <span class="item-name-2">Cloud's Hero Drink</span>
+                    <span class="text-start-4">Gil</span>
+                    <span class="flavor-text-4">450</span>
+                    <span class="text-start-5">Vibrant</span>
+                    <span class="flavor-text-5">Coconut, rum, orange juice blend.</span>
+                    <span class="text-start-6">Feel</span>
+                    <span class="flavor-text-6">like a hero with a citrus rush of Mighty Guard.</span>
+                    <img class="hp-bar-2" src="hp bar.png">
+                    <img class="mp-bar-2" src="mp bar.png">
+                </article>
+                <article>
+                    <img class="dish" src="Tifa's final heaven hennessy and coke.png" alt="Lockhart's Final Heaven Hennessy and Coke">
+                    <span class="item-name-3">Lockhart's Final Heaven Hennessy and Coke</span>
+                    <span class="text-start-7">Gil</span>
+                    <span class="flavor-text-7">650</span>
+                    <span class="text-start-8">Smooth</span>
+                    <span class="flavor-text-8">Hennessy cognac with Coca-Cola.</span>
+                    <span class="text-start-9">Ascend</span>
+                    <span class="flavor-text-9">to Final Heaven with every bold sip.</span>
+                    <img class="hp-bar-3" src="hp bar.png">
+                    <img class="mp-bar-3" src="mp bar.png">
+                </article>
+            </section>
+
+        <!-- Drinks Section Page 3 -->
+            <p id="drink-id-3">Drinks pg.3</p>
+            <section id="drinks3">
+                <article>
+                    <img class="dish" src="red xiii's cosmo memory cosmopolitan.png" alt="Red XIII's Cosmo Memory Cosmopolitan">
+                    <span class="item-name-1">Red XIII's Cosmo Memory Cosmopolitan</span>
+                    <span class="text-start-1">Gil</span>
+                    <span class="flavor-text-1">575</span>
+                    <span class="text-start-2">Cosmic</span>
+                    <span class="flavor-text-2">cranberry, vodka, lime twist.</span>
+                    <span class="text-start-3">Taste</span>
+                    <span class="flavor-text-3">the exotic flavors of Cosmo Canyon.</span>
+                    <img class="hp-bar" src="hp bar.png">
+                    <img class="mp-bar" src="mp bar.png">
+                </article>
+                <article>
+                    <img class="dish" src="vincent's vampire fang vodka.png" alt="Valentine's Vampire Fang Vodka">
+                    <span class="item-name-2">Valentine's Vampire Fang Vodka</span>
+                    <span class="text-start-4">Gil</span>
+                    <span class="flavor-text-4">550</span>
+                    <span class="text-start-5">Biting</span>
+                    <span class="flavor-text-5">vodka, grenadine, and lemon-lime soda.</span>
+                    <span class="text-start-6">Bloody</span>
+                    <span class="flavor-text-6">delicious, cherry and citrus drink.</span>
+                    <img class="hp-bar-2" src="hp bar.png">
+                    <img class="mp-bar-2" src="mp bar.png">
+                </article>
+                <article>
+                    <img class="dish" src="wutai's war gong whiskey.png" alt="Wutai's War Gong Whiskey">
+                    <span class="item-name-3">Wutai's War Gong Whiskey</span>
+                    <span class="text-start-7">Gil</span>
+                    <span class="flavor-text-7">699</span>
+                    <span class="text-start-8">Robust</span>
+                    <span class="flavor-text-8">whiskey with berserk-inducing spice.</span>
+                    <span class="text-start-9">Fierce</span>
+                    <span class="flavor-text-9">and spicy, with a bold kick.</span>
+                    <img class="hp-bar-3" src="hp bar.png">
+                    <img class="mp-bar-3" src="mp bar.png">
+                </article>
+            </section>
+            <h2 id="order-id">Place Your Order:</h2>
+            <section id="order-form">
+                <form>
+                    <h3><u>Starters</u></h3>
+                    <label for="barrets-grenade-nuggets">Barret's Grenade Nuggets</label>
+                    <input type="number" id="barrets-grenade-nuggets" name="barrets-grenade-nuggets" min="0">
+                    <br>
+                    <label for="cait-siths-dragon-scales-soup">Cait Sith's Dragon Scales Soup</label>
+                    <input type="number" id="cait-siths-dragon-scales-soup" name="cait-siths-dragon-scales-soup" min="0">
+                    <br>
+                    <label for="cids-fire-veil-fries">Cid's Fire Veil Fries</label>
+                    <input type="number" id="cids-fire-veil-fries" name="cids-fire-veil-fries" min="0">
+                    <br>
+                    <label for="clouds-smoke-bomb-sliders">Cloud's Smoke Bomb Sliders</label>
+                    <input type="number" id="clouds-smoke-bomb-sliders" name="clouds-smoke-bomb-sliders" min="0">
+                    <br>
+                    <label for="gainsboroughs-sylkis-greens">Gainsborough's Sylkis Greens</label>
+                    <input type="number" id="gainsboroughs-sylkis-greens" name="gainsboroughs-sylkis-greens" min="0">
+                    <br>
+                    <label for="red-xiiis-ts-bomb-tater-tots">Red XIII's T/S Bomb Tater Tots</label>
+                    <input type="number" id="red-xiiis-ts-bomb-tater-tots" name="red-xiiis-ts-bomb-tater-tots" min="0">
+                    <br>
+                    <label for="tifas-hyper-hot-wings">Tifa's Hyper Hot Wings</label>
+                    <input type="number" id="tifas-hyper-hot-wings" name="tifas-hyper-hot-wings" min="0">
+                    <br>
+                    <label for="valentines-deadly-waste-chips-and-dip">Valentine's Deadly Waste Chips and Dip</label>
+                    <input type="number" id="valentines-deadly-waste-chips-and-dip" name="valentines-deadly-waste-chips-and-dip" min="0">
+                    <br>
+                    <label for="yuffies-dazers-dumplings">Yuffie's Dazers Dumplings</label>
+                    <input type="number" id="yuffies-dazers-dumplings" name="yuffies-dazers-dumplings" min="0">
+                    <br>
+                    <h3><u>Entrees</u></h3>
+                    <label for="barrets-catastrophe-chicken-sandwich">Barret's Catastrophe Chicken Sandwich</label>
+                    <input type="number" id="barrets-catastrophe-chicken-sandwich" name="barrets-catastrophe-chicken-sandwich" min="0">
+                    <br>
+                    <label for="cait-siths-remedy-ribs">Cait Sith's Remedy Ribs</label>
+                    <input type="number" id="cait-siths-remedy-ribs" name="cait-siths-remedy-ribs" min="0">
+                    <br>
+                    <label for="cids-graviball-meatloaf-and-gravy">Cid's Graviball Meatloaf and Gravy</label>
+                    <input type="number" id="cids-graviball-meatloaf-and-gravy" name="cids-graviball-meatloaf-and-gravy" min="0">
+                    <br>
+                    <label for="gainsboroughs-great-gospel-grain-bowl">Gainsborough's Great Gospel Grain Bowl</label>
+                    <input type="number" id="gainsboroughs-great-gospel-grain-bowl" name="gainsboroughs-great-gospel-grain-bowl" min="0">
+                    <br>
+                    <label for="kisaragis-dragon-fang-sushi">Kisaragi's Dragon Fang Sushi</label>
+                    <input type="number" id="kisaragis-dragon-fang-sushi" name="kisaragis-dragon-fang-sushi" min="0">
+                    <br>
+                    <label for="nanakis-turbo-ether-tacos">Nanaki's Turbo Ether Tacos</label>
+                    <input type="number" id="nanakis-turbo-ether-tacos" name="nanakis-turbo-ether-tacos" min="0">
+                    <br>
+                    <label for="strifes-fire-fang-fajitas">Strife's Fire Fang Fajitas</label>
+                    <input type="number" id="strifes-fire-fang-fajitas" name="strifes-fire-fang-fajitas" min="0">
+                    <br>
+                    <label for="tifas-hi-potion-hot-pot">Tifa's Hi-Potion Hot Pot</label>
+                    <input type="number" id="tifas-hi-potion-hot-pot" name="tifas-hi-potion-hot-pot" min="0">
+                    <br>
+                    <label for="vincents-chaos-cheeseburger">Vincent's Chaos Cheeseburger</label>
+                    <input type="number" id="vincents-chaos-cheeseburger" name="vincents-chaos-cheeseburger" min="0">
+                    <br>
+                    <h3><u>Desserts</u></h3>
+                    <label for="aeris-carob-nut-cake">Aeris Carob Nut Cake</label>
+                    <input type="number" id="aeris-carob-nut-cake" name="aeris-carob-nut-cake" min="0">
+                    <br>
+                    <label for="barrets-8inch-cannon-ice-cream-cone">Barret's 8-inch Cannon Ice Cream Cone</label>
+                    <input type="number" id="barrets-8inch-cannon-ice-cream-cone" name="barrets-8inch-cannon-ice-cream-cone" min="0">
+                    <br>
+                    <label for="cid-highwinds-hot-chocolate">Cid Highwind's Hot Chocolate</label>
+                    <input type="number" id="cid-highwinds-hot-chocolate" name="cid-highwinds-hot-chocolate" min="0">
+                    <br>
+                    <label for="clouds-ice-crystal-ice-cream">Cloud's Ice Crystal Ice Cream</label>
+                    <input type="number" id="clouds-ice-crystal-ice-cream" name="clouds-ice-crystal-ice-cream" min="0">
+                    <br>
+                    <label for="cait-siths-magic-source-muffins">Cait Sith's Magic Source Muffins</label>
+                    <input type="number" id="cait-siths-magic-source-muffins" name="cait-siths-magic-source-muffins" min="0">
+                    <br>
+                    <label for="tifas-soft-sorbet">Tifa's Soft Sorbet</label>
+                    <input type="number" id="tifas-soft-sorbet" name="tifas-soft-sorbet" min="0">
+                    <br>
+                    <label for="vincents-dream-powder-pudding">Vincent's Dream Powder Pudding</label>
+                    <input type="number" id="vincents-dream-powder-pudding" name="vincents-dream-powder-pudding" min="0">
+                    <br>
+                    <label for="yuffies-kiss-of-death-cake">Yuffie's Kiss of Death Cake</label>
+                    <input type="number" id="yuffies-kiss-of-death-cake" name="yuffies-kiss-of-death-cake" min="0">
+                    <br>
+                    <label for="red-xiiis-pipio-nut-butter-cookies">Red XIII's Pipio-Nut Butter Cookies</label>
+                    <input type="number" id="red-xiiis-pipio-nut-butter-cookies" name="red-xiiis-pipio-nut-butter-cookies" min="0">
+                    <br>
+                    <h3><u>Drinks</u></h3>
+                    <label for="aeris-mideel-island-ether-tea">Aeris' Mideel Island Ether Tea</label>
+                    <input type="number" id="aeris-mideel-island-ether-tea" name="aeris-mideel-island-ether-tea" min="0">
+                    <br>
+                    <label for="barrets-molotov-cocktail">Barret's Molotov Cocktail</label>
+                    <input type="number" id="barrets-molotov-cocktail" name="barrets-molotov-cocktail" min="0">
+                    <br>
+                    <label for="caits-loco-weed-latte">Cait's Loco Weed Latte</label>
+                    <input type="number" id="caits-loco-weed-latte" name="caits-loco-weed-latte" min="0">
+                    <br>
+                    <label for="cids-swift-bolt-stout">Cid's Swift Bolt Stout</label>
+                    <input type="number" id="cids-swift-bolt-stout" name="cids-swift-bolt-stout" min="0">
+                    <br>
+                    <label for="clouds-hero-drink">Cloud's Hero Drink</label>
+                    <input type="number" id="clouds-hero-drink" name="clouds-hero-drink" min="0">
+                    <br>
+                    <label for="lockharts-final-heaven-hennesy-and-coke">Lockhart's Final Heaven Hennesy and Coke</label>
+                    <input type="number" id="lockharts-final-heaven-hennesy-and-coke" name="lockharts-final-heaven-hennesy-and-coke" min="0">
+                    <br>
+                    <label for="red-xiiis-cosmo-memory-cosmopolitan">Red XIII's Cosmo Memory Cosmopolitan</label>
+                    <input type="number" id="red-xiiis-cosmo-memory-cosmopolitan" name="red-xiiis-cosmo-memory-cosmopolitan" min="0">
+                    <br>
+                    <label for="valentines-vampire-fang-vodka">Valentine's Vampire Fang Vodka</label>
+                    <input type="number" id="valentines-vampire-fang-vodka" name="valentines-vampire-fang-vodka" min="0">
+                    <br>
+                    <label for="wutais-war-gong-whiskey">Wutai's War Gong Whiskey</label>
+                    <input type="number" id="wutais-war-gong-whiskey" name="wutais-war-gong-whiskey" min="0">
+                <br>
+                    <div class="order-extras">
+                        <u>Sides: (300 Gil each)</u><br><br>
+                        <label><input type="checkbox" name="sides" value="fries"> Fries</label>
+                        <label><input type="checkbox" name="sides" value="onion-rings"> Onion Rings</label>
+                        <label><input type="checkbox" name="sides" value="mashed-potatoes"> Mashed Potatoes</label>
+                        <br>
+                        <label><input type="checkbox" name="sides" value="house-salad"> House Salad</label>
+                        <label><input type="checkbox" name="sides" value="soup-of-the-day"> Soup of the Day</label>
+                        <br><br>
+                        <u>Add-Ons: (150 Gil each)</u><br><br>
+                        <label><input type="checkbox" name="add-ons" value="whipped-cream"> Whipped Cream</label>
+                        <label><input type="checkbox" name="add-ons" value="soy-sauce"> Soy Sauce</label>
+                        <label><input type="checkbox" name="add-ons" value="ketchup"> Ketchup</label>
+                        <br>
+                        <label><input type="checkbox" name="add-ons" value="ranch"> Ranch</label>
+                        <label><input type="checkbox" name="add-ons" value="bbq"> BBQ Sauce</label>
+                        <br><br>
+                        <label>Special Requests:
+                            <textarea maxlength="250">(Please list any food allergies here)</textarea>
+                        </label>
+                        <br><br>
+                        <label>Go To Checkout: <input type="submit"></label>
+                    </div>
+                </form>
+            </section>
+        </main>
+        <footer id="footer">My first webpage.  This FF7 inspired menu was made with love by Elysianwing.
+        </footer>
+    </body>
+</html>

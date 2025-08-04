@@ -1,0 +1,718 @@
+@font-face {
+    font-family: 'Reactor7';
+    src: url('reactor7.otf/') format('opentype font');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* Global Styles */
+* {
+    text-shadow: 4px 4px 1px #181818;
+}
+
+form {
+    position: relative;
+    z-index: 10000;
+}
+
+input, select, textarea {
+    text-shadow: none !important;
+}
+
+#nav-panel {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: flex-start;
+    width: 19.2vw;
+    height: 65vh;
+    position: fixed;
+    top: 0.1vh;
+    right: 8.1vw;
+    background: url('menu gradient.png') no-repeat center center;
+    background-size: cover;
+    border: 10px solid #ffffff;
+    border-radius: 10px;
+    padding: 0;
+    z-index: 10;
+    font-size: 3.75vh;
+}
+
+#nav-panel nav {
+    padding-left: 60px;
+    width: 100%;
+}
+
+#nav-panel ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+#nav-panel li {
+    margin: 0;
+    padding: 0;
+}
+
+#nav-panel p {
+    margin: 0;
+    padding: 0;
+}
+
+#nav-panel p.first-link {
+    padding-top: 25px;
+}
+
+#nav-panel p.last-link {
+    margin-bottom: 25px;
+}
+
+#nav-panel a {
+    display: block;
+    font-family: 'Reactor7', sans-serif;
+    color: white;
+    text-decoration: none;
+    line-height: 1;
+}
+
+/* Clock Box */
+#clockbox {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: stretch;
+    width: 19.7vw;
+    height: 12.9vh;
+    position: fixed;
+    top: 73.8vh;
+    right: 8.1vw;
+    padding-left: 5px; 
+    background: url('menu gradient.png') no-repeat center center;
+    background-size: cover;
+    border: 10px solid #ffffff;
+    border-radius: 10px;
+    z-index: 4;
+    font-size: 5vh;
+}
+
+.clock-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 5px; 
+    width: calc(100% - 10px); 
+}
+
+.clock-row p,
+.clock-row h4 {
+    margin: 0;
+    padding: 0;
+}
+
+.clock-row h4 {
+    white-space: nowrap;
+}
+
+#header-img-box {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    width: 61vw;
+    height: 88vh;
+    position: relative;
+    top: 5vh;
+    left: 12.5vw;
+    right: 13.75vw;
+    background: url('menu gradient.png') no-repeat center center;
+    background-size: cover;
+    border: 10px solid #ffffff;
+    border-radius: 10px;
+    z-index: 1;
+    padding: 0;
+    overflow: hidden;
+}
+
+#header-img {
+    width: auto;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+    z-index: 3;
+}
+
+#music-box {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: flex-start;
+    width: 36.9vw;
+    height: 9.51vh;
+    position: fixed;
+    top: 88.3vh;
+    right: 8.1vw;
+    background: url('menu gradient.png') no-repeat center center;
+    background-size: cover;
+    border: 10px solid #ffffff;
+    border-radius: 10px;
+    z-index: 10;
+    padding: 0;
+    overflow: hidden;
+    gap: 0.5vh;
+}
+
+#music-box h1 {
+    margin: 0;
+    padding: 0;
+    font-size: 5vh;
+    white-space: normal;
+    overflow: hidden;
+    text-overflow: unset;
+    line-height: 1.1;
+}
+
+#music-box h2 {
+    margin: 0;
+    padding: 0;
+    font-size: 3vh;
+    white-space: normal;
+    overflow: hidden;
+    text-overflow: unset;
+    line-height: 1.1;
+}
+
+#menu {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    width: 61vw;
+    height: 88vh;
+    position: relative;
+    top: 10vh;
+    left: 12.5vw;
+    right: 13.75vw;
+    background: url('https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fi.redd.it%2Fippwlq2n88e71.jpg&f=1&nofb=1&ipt=cf4edcc27120e9094a8820dc8063a985060bccbf8405d6906b5754e47bf421d3') no-repeat center center;
+    background-size: cover;
+    border: 10px solid #ffffff;
+    border-radius: 10px;
+    z-index: 1;
+    padding: 0;
+    overflow: hidden;
+}
+
+#menu p {
+    position: absolute;
+    margin-top: 0vh;
+    top: 0vh;
+    left: 1vw;
+    z-index: 2;
+    font-size: 10vh;
+    font-weight: 700;
+    text-decoration: underline;
+}
+
+#starters, #starters2, #starters3 {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    position: relative;
+    width: 61vw;
+    height: 88vh;
+    left: 12.5vw;
+    right: 13.75vw;
+    background: url('menu gradient.png') no-repeat center center;
+    background-size: cover;
+    border: 10px solid #ffffff;
+    border-radius: 10px;
+    z-index: 1;
+}
+
+#starters {
+    top: 15vh;
+}
+
+#starters2 {
+    top: 20vh;
+}
+
+#starters3 {
+    top: 25vh;
+
+}
+
+#starters article, #starters2 article, #starters3 article {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-top: 0vh;
+    margin-bottom: 5.8vh;
+}
+
+#starter-id {
+    position: absolute;
+    margin-top: 0vh;
+    margin-right: 0vw;
+    top: 190vh;
+    right: 30vw;
+    z-index: 2;
+    font-size: 6vh;
+    font-weight: 700;
+    text-decoration: underline;
+}
+
+#starter-id-2 {
+    position: absolute;
+    margin-top: 0vh;
+    margin-right: 0vw;
+    top: 284.5vh;
+    right: 30vw;
+    z-index: 2;
+    font-size: 6vh;
+    font-weight: 700;
+    text-decoration: underline;
+}
+
+#starter-id-3 {
+    position: absolute;
+    margin-top: 0vh;
+    margin-right: 0vw;
+    top: 379vh;
+    right: 30vw;
+    z-index: 2;
+    font-size: 6vh;
+    font-weight: 700;
+    text-decoration: underline;
+}
+
+#entrees, #entrees2, #entrees3 {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    position: relative;
+    width: 61vw;
+    height: 88vh;
+    left: 12.5vw;
+    right: 13.75vw;
+    background: url('menu gradient.png') no-repeat center center;
+    background-size: cover;
+    border: 10px solid #ffffff;
+    border-radius: 10px;
+    z-index: 1;
+}
+
+#entrees {
+    top: 30vh;
+}
+
+#entrees2 {
+    top: 35vh;
+}
+
+#entrees3 {
+    top: 40vh;
+
+}
+#entrees article, #entrees2 article, #entrees3 article {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-top: 0vh;
+    margin-bottom: 5.8vh;
+}
+
+#entree-id {
+    position: absolute;
+    margin-top: 0vh;
+    margin-right: 0vw;
+    top: 473.5vh;
+    right: 30vw;
+    z-index: 2;
+    font-size: 6vh;
+    font-weight: 700;
+    text-decoration: underline;
+}
+
+#entree-id-2 {
+    position: absolute;
+    margin-top: 0vh;
+    margin-right: 0vw;
+    top: 568vh;
+    right: 30vw;
+    z-index: 2;
+    font-size: 6vh;
+    font-weight: 700;
+    text-decoration: underline;
+}
+
+#entree-id-3 {
+    position: absolute;
+    margin-top: 0vh;
+    margin-right: 0vw;
+    top: 662.5vh;
+    right: 30vw;
+    z-index: 2;
+    font-size: 6vh;
+    font-weight: 700;
+    text-decoration: underline;
+}
+
+#desserts, #desserts2, #desserts3 {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    position: relative;
+    width: 61vw;
+    height: 88vh;
+    left: 12.5vw;
+    right: 13.75vw;
+    background: url('menu gradient.png') no-repeat center center;
+    background-size: cover;
+    border: 10px solid #ffffff;
+    border-radius: 10px;
+    z-index: 1;
+}
+
+#desserts {
+    top: 45vh;
+}
+
+#desserts2 {
+    top: 50vh;
+}
+
+#desserts3 {
+    top: 55vh;
+
+}
+#desserts article, #desserts2 article, #desserts3 article {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-top: 0vh;
+    margin-bottom: 5.8vh;
+}
+
+#dessert-id {
+    position: absolute;
+    margin-top: 0vh;
+    margin-right: 0vw;
+    top: 757vh;
+    right: 30vw;
+    z-index: 2;
+    font-size: 6vh;
+    font-weight: 700;
+    text-decoration: underline;
+}
+
+#dessert-id-2 {
+    position: absolute;
+    margin-top: 0vh;
+    margin-right: 0vw;
+    top: 851.5vh;
+    right: 29.85vw;
+    z-index: 2;
+    font-size: 6vh;
+    font-weight: 700;
+    text-decoration: underline;
+}
+
+#dessert-id-3 {
+    position: absolute;
+    margin-top: 0vh;
+    margin-right: 0vw;
+    top: 946vh;
+    right: 29.85vw;
+    z-index: 2;
+    font-size: 6vh;
+    font-weight: 700;
+    text-decoration: underline;
+}
+
+#drinks, #drinks2, #drinks3 {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    position: relative;
+    width: 61vw;
+    height: 88vh;
+    left: 12.5vw;
+    right: 13.75vw;
+    background: url('menu gradient.png') no-repeat center center;
+    background-size: cover;
+    border: 10px solid #ffffff;
+    border-radius: 10px;
+    z-index: 1;
+}
+
+#drinks {
+    top: 60vh;
+}
+
+#drinks2 {
+    top: 65vh;
+}
+
+#drinks3 {
+    top: 70vh;
+
+}
+#drinks article, #drinks2 article, #drinks3 article {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-top: 0vh;
+    margin-bottom: 5.8vh;
+}
+
+#drink-id {
+    position: absolute;
+    margin-top: 0vh;
+    margin-right: 0vw;
+    top: 1040.5vh;
+    right: 30vw;
+    z-index: 2;
+    font-size: 6vh;
+    font-weight: 700;
+    text-decoration: underline;
+}
+
+#drink-id-2 {
+    position: absolute;
+    margin-top: 0vh;
+    margin-right: 0vw;
+    top: 1135vh;
+    right: 30vw;
+    z-index: 2;
+    font-size: 6vh;
+    font-weight: 700;
+    text-decoration: underline;
+}
+
+#drink-id-3 {
+    position: absolute;
+    margin-top: 0vh;
+    margin-right: 0vw;
+    top: 1229.5vh;
+    right: 30vw;
+    z-index: 2;
+    font-size: 6vh;
+    font-weight: 700;
+    text-decoration: underline;
+}
+
+#order-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    position: relative;
+    width: 61vw;
+    height: 88vh;
+    left: 12.5vw;
+    right: 13.75vw;
+    background: url('menu gradient.png') no-repeat center center;
+    background-size: cover;
+    border: 10px solid #ffffff;
+    border-radius: 10px;
+    z-index: 1;
+    top: 80vh;
+    font-size: 2vh;
+}
+#order-form label, h3 {
+    margin-left: 1vw;
+}
+#order-id {
+    position: absolute;
+    margin-top: 0vh;
+    margin-right: 0vw;
+    top: 1329vh;
+    right: 30vw;
+    z-index: 2;
+    font-size: 6vh;
+    font-weight: 700;
+    text-decoration: underline;
+}
+
+.order-extras {
+    position: absolute;
+    top: 18.5vh; 
+    left: 35vw; 
+    font-size: 3vh;
+    color: white;
+    font-family: 'Reactor7', sans-serif;
+}
+
+.order-extras u {
+    text-decoration: underline;
+}
+
+.order-extras label,
+.order-extras input[type="checkbox"],
+.order-extras textarea {
+    font-size: 2.5vh;
+    margin: 0.5vh 0;
+    width:8vw;
+}
+
+.order-extras textarea {
+    width: 20vw;
+    height: 10vh;
+    font-family: 'Reactor7', sans-serif;
+}
+
+.order-extras input[type="submit"] {
+    font-size: 2.5vh;
+    font-family: 'Reactor7', sans-serif;
+}
+
+.dish {
+    width: auto;
+    height: 18vh;
+    object-fit: contain;
+    margin-left: 3vw;
+    margin-top: 4vh;
+}
+
+.item-name-1, .item-name-2, .item-name-3 {
+    position: absolute;
+    font-size: 4vh;
+    font-weight: 700;
+    margin: 0;
+}
+
+.item-name-1 { left: 14vw; top: 7vh; }
+.item-name-2 { left: 14vw; top: 35vh; }
+.item-name-3 { left: 14vw; top: 62.5vh; }
+
+.text-start-1, .text-start-2, .text-start-3, .text-start-4, .text-start-5, .text-start-6, .text-start-7, .text-start-8, .text-start-9 {
+    font-size: 4vh;
+    position: absolute;
+    z-index: 3;
+    color: #00e6e6;
+}
+
+.text-start-1 { top: 11vh; left: 14vw; }
+.text-start-2 { top: 15vh; left: 14vw; }
+.text-start-3 { top: 19vh; left: 14vw; }
+.text-start-4 { top: 39vh; left: 14vw; }
+.text-start-5 { top: 43vh; left: 14vw; }
+.text-start-6 { top: 47vh; left: 14vw; }
+.text-start-7 { top: 67vh; left: 14vw; }
+.text-start-8 { top: 71vh; left: 14vw; }
+.text-start-9 { top: 75vh; left: 14vw; }
+
+.flavor-text-1, .flavor-text-2, .flavor-text-3, .flavor-text-4, .flavor-text-5, .flavor-text-6, .flavor-text-7, .flavor-text-8, .flavor-text-9 {
+    position: absolute;
+    font-size: 4vh;
+    margin: 0;
+}
+
+.flavor-text-1 { left: 17vw; top: 11vh; }
+.flavor-text-2 { left: 20vw; top: 15vh;font-size: 3.5vh; }
+.flavor-text-3 { left: 20vw; top: 19vh;font-size: 3.5vh; }
+.flavor-text-4 { left: 17vw; top: 39vh; }
+.flavor-text-5 { left: 20vw; top: 43.25vh; font-size: 3.5vh; }
+.flavor-text-6 { left: 20vw; top: 47.25vh; font-size: 3.5vh; }
+.flavor-text-7 { left: 17vw; top: 67vh; }
+.flavor-text-8 { left: 20vw; top: 71.25vh; font-size: 3.5vh; }
+.flavor-text-9 { left: 20vw; top: 75.25vh; font-size: 3.5vh; }
+
+
+
+.hp-bar, .mp-bar, .hp-bar-2, .mp-bar-2, .hp-bar-3, .mp-bar-3 {
+    position: absolute;
+    z-index: 3;
+}
+
+#starters .hp-bar { top: 18vh; left: 20vw; width: 19.2vw; height: 1vh; }
+#starters .mp-bar { top: 22vh; left: 20vw; width: 24vw; height: 1vh; }
+#starters .hp-bar-2 { top: 46vh; left: 20vw; width: 22.25vw; height: 1vh; }
+#starters .mp-bar-2 { top: 49.5vh; left: 20vw; width: 23.5vw; height: 1vh; }
+#starters .hp-bar-3 { top: 73.5vh; left: 20vw; width: 19.4vw; height: 1vh; }
+#starters .mp-bar-3 { top: 78vh; left: 20vw; width: 17.8vw; height: 1vh; }
+
+#starters2 .hp-bar { top: 18vh; left: 20vw; width: 20.65vw; height: 1vh; }
+#starters2 .mp-bar { top: 22vh; left: 20vw; width: 21.6vw; height: 1vh; }
+#starters2 .hp-bar-2 { top: 46vh; left: 20vw; width: 21vw; height: 1vh; }
+#starters2 .mp-bar-2 { top: 49.5vh; left: 20vw; width: 18vw; height: 1vh; }
+#starters2 .hp-bar-3 { top: 73.5vh; left: 20vw; width: 20.4vw; height: 1vh; }
+#starters2 .mp-bar-3 { top: 78vh; left: 20vw; width: 19.45vw; height: 1vh; }
+
+#starters3 .hp-bar { top: 18vh; left: 20vw; width: 22.75vw; height: 1vh; }
+#starters3 .mp-bar { top: 22vh; left: 20vw; width: 18.6vw; height: 1vh; }
+#starters3 .hp-bar-2 { top: 46vh; left: 20vw; width: 19.9vw; height: 1vh; }
+#starters3 .mp-bar-2 { top: 49.5vh; left: 20vw; width: 14.8vw; height: 1vh; }
+#starters3 .hp-bar-3 { top: 73.5vh; left: 20vw; width: 22vw; height: 1vh; }
+#starters3 .mp-bar-3 { top: 78vh; left: 20vw; width: 18.5vw; height: 1vh; }
+
+#entrees .hp-bar { top: 18vh; left: 20vw; width: 22.6vw; height: 1vh; }
+#entrees .mp-bar { top: 22vh; left: 20vw; width: 25.3vw; height: 1vh; }
+#entrees .hp-bar-2 { top: 46vh; left: 20vw; width: 22vw; height: 1vh; }
+#entrees .mp-bar-2 { top: 49.5vh; left: 20vw; width: 22.5vw; height: 1vh; }
+#entrees .hp-bar-3 { top: 73.5vh; left: 20vw; width: 23.6vw; height: 1vh; }
+#entrees .mp-bar-3 { top: 78vh; left: 20vw; width: 20.9vw; height: 1vh; }
+
+#entrees2 .hp-bar { top: 18vh; left: 20vw; width: 25vw; height: 1vh; }
+#entrees2 .mp-bar { top: 22vh; left: 20vw; width: 23.55vw; height: 1vh; }
+#entrees2 .hp-bar-2 { top: 46vh; left: 20vw; width: 22.75vw; height: 1vh; }
+#entrees2 .mp-bar-2 { top: 49.5vh; left: 20vw; width: 19.95vw; height: 1vh; }
+#entrees2 .hp-bar-3 { top: 73.5vh; left: 20vw; width: 24.05vw; height: 1vh; }
+#entrees2 .mp-bar-3 { top: 78vh; left: 20vw; width: 23.1vw; height: 1vh; }
+
+#entrees3 .hp-bar { top: 18vh; left: 20vw; width: 24.1vw; height: 1vh; }
+#entrees3 .mp-bar { top: 22vh; left: 20vw; width: 19.9vw; height: 1vh; }
+#entrees3 .hp-bar-2 { top: 46vh; left: 20vw; width: 27.5vw; height: 1vh; }
+#entrees3 .mp-bar-2 { top: 49.5vh; left: 20vw; width: 25.5vw; height: 1vh; }
+#entrees3 .hp-bar-3 { top: 73.5vh; left: 20vw; width: 20.05vw; height: 1vh; }
+#entrees3 .mp-bar-3 { top: 78vh; left: 20vw; width: 18.9vw; height: 1vh; }
+
+#desserts .hp-bar { top: 18vh; left: 20vw; width: 22.9vw; height: 1vh; }
+#desserts .mp-bar { top: 22vh; left: 20vw; width: 22.5vw; height: 1vh; }
+#desserts .hp-bar-2 { top: 46vh; left: 20vw; width: 22.2vw; height: 1vh; }
+#desserts .mp-bar-2 { top: 49.5vh; left: 20vw; width: 20.5vw; height: 1vh; }
+#desserts .hp-bar-3 { top: 73.5vh; left: 20vw; width: 24.5vw; height: 1vh; }
+#desserts .mp-bar-3 { top: 78vh; left: 20vw; width: 23.6vw; height: 1vh; }
+
+#desserts2 .hp-bar { top: 18vh; left: 20vw; width: 23.4vw; height: 1vh; }
+#desserts2 .mp-bar { top: 22vh; left: 20vw; width: 21.1vw; height: 1vh; }
+#desserts2 .hp-bar-2 { top: 46vh; left: 20vw; width: 21.45vw; height: 1vh; }
+#desserts2 .mp-bar-2 { top: 49.5vh; left: 20vw; width: 21.7vw; height: 1vh; }
+#desserts2 .hp-bar-3 { top: 73.5vh; left: 20vw; width: 20.1vw; height: 1vh; }
+#desserts2 .mp-bar-3 { top: 78vh; left: 20vw; width: 21.05vw; height: 1vh; }
+
+#desserts3 .hp-bar { top: 18vh; left: 20vw; width: 20.55vw; height: 1vh; }
+#desserts3 .mp-bar { top: 22vh; left: 20vw; width: 24.05vw; height: 1vh; }
+#desserts3 .hp-bar-2 { top: 46vh; left: 20vw; width: 22.3vw; height: 1vh; }
+#desserts3 .mp-bar-2 { top: 49.5vh; left: 20vw; width: 19.95vw; height: 1vh; }
+#desserts3 .hp-bar-3 { top: 73.5vh; left: 20vw; width: 21.85vw; height: 1vh; }
+#desserts3 .mp-bar-3 { top: 78vh; left: 20vw; width: 18.85vw; height: 1vh; }
+
+#drinks .hp-bar { top: 18vh; left: 20vw; width: 25.8vw; height: 1vh; }
+#drinks .mp-bar { top: 22vh; left: 20vw; width: 21.45vw; height: 1vh; }
+#drinks .hp-bar-2 { top: 46vh; left: 20vw; width: 27.6vw; height: 1vh; }
+#drinks .mp-bar-2 { top: 49.5vh; left: 20vw; width: 23.55vw; height: 1vh; }
+#drinks .hp-bar-3 { top: 73.5vh; left: 20vw; width: 20.55vw; height: 1vh; }
+#drinks .mp-bar-3 { top: 78vh; left: 20vw; width: 21.75vw; height: 1vh; }
+
+#drinks2 .hp-bar { top: 18vh; left: 20vw; width: 22.5vw; height: 1vh; }
+#drinks2 .mp-bar { top: 22vh; left: 20vw; width: 20.2vw; height: 1vh; }
+#drinks2 .hp-bar-2 { top: 46vh; left: 20vw; width: 22.65vw; height: 1vh; }
+#drinks2 .mp-bar-2 { top: 49.5vh; left: 20vw; width: 29.45vw; height: 1vh; }
+#drinks2 .hp-bar-3 { top: 73.5vh; left: 20vw; width: 21.75vw; height: 1vh; }
+#drinks2 .mp-bar-3 { top: 78vh; left: 20vw; width: 22.95vw; height: 1vh; }
+
+#drinks3 .hp-bar { top: 18vh; left: 20vw; width: 19.65vw; height: 1vh; }
+#drinks3 .mp-bar { top: 22vh; left: 20vw; width: 23.55vw; height: 1vh; }
+#drinks3 .hp-bar-2 { top: 46vh; left: 20vw; width: 26.5vw; height: 1vh; }
+#drinks3 .mp-bar-2 { top: 49.5vh; left: 20vw; width: 21.4vw; height: 1vh; }
+#drinks3 .hp-bar-3 { top: 73.5vh; left: 20vw; width: 23.75vw; height: 1vh; }
+#drinks3 .mp-bar-3 { top: 78vh; left: 20vw; width: 17.4vw; height: 1vh; }
+#footer {
+    position: relative;
+    top:85vh;
+}
